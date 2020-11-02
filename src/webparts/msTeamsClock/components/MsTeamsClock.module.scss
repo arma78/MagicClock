@@ -1,0 +1,410 @@
+@import '~office-ui-fabric-react/dist/sass/References.scss';
+
+.msTeamsClock {
+.close
+{
+  color:black;
+  background-color: white;
+  font-weight: bolder;
+  font-size: large;
+  border-color: slateblue;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+  float:right;
+  padding: 5px;
+
+}
+.info
+{
+  color: white;
+  max-height:250px;
+  overflow:auto;
+  background-color:slateblue;
+  padding:8px;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+}
+.leg1
+{
+  background-color:slateblue;
+  max-width: 70px;
+  margin:10px;
+}
+.leg2
+{
+  background-color:black;
+  max-width: 70px;
+
+  margin:10px;
+}
+.leg3
+{
+  background-color:orange;
+  max-width: 70px;
+  margin:10px;
+}
+.leg4
+{
+  background-color:red;
+  max-width: 70px;
+  margin:10px;
+}
+  .container {
+    display: flex;
+    flex-direction:row;
+    max-width: 700px;
+    max-height: auto;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+
+  }
+  .row {
+    @include ms-Grid-row;
+    padding: 10px;
+    display: flex;
+    flex-direction:row;
+    margin: 0px auto;
+  }
+  .peoplepicker
+  {
+    max-width: 300px;
+    color: steelblue;
+    font-weight: bolder;
+  }
+
+  .clock{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #dde1e7;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    box-shadow: -3px -3px 7px #ffffff73,
+                3px 3px 5px rgba(94,104,121,0.288);
+  }
+  .clock:before{
+    position: absolute;
+    content: '';
+    height: 220px;
+    width: 220px;
+    background: #dde1e7;
+    border-radius: 50%;
+    box-shadow: inset -3px -3px 7px #ffffff73,
+                inset 3px 3px 5px rgba(94,104,121,0.288);
+  }
+  .clock:after{
+    position: absolute;
+    content: '';
+    height: 120px;
+    width: 120px;
+    background: #dde1e7;
+    border-radius: 50%;
+    box-shadow: -1px -1px 5px #ffffff73,
+                1px 1px 3px rgba(94,104,121,0.288);
+  }
+  .clock .centernut{
+    height: 15px;
+    width: 15px;
+    background: slateblue;
+    border-radius: 50%;
+    z-index: 2;
+    position: absolute;
+  }
+  .clock .centernut2{
+    height: 9px;
+    width: 9px;
+    background: black;
+    border-radius: 50%;
+    z-index: 15;
+    position: absolute;
+  }
+  .indicators div{
+    position: absolute;
+    width: 6px;
+    height: 8px;
+    background:slateblue;
+  }
+  .indicators div:nth-child(1){
+    transform: rotate(15deg) translateY(-100px);
+    cursor: pointer;
+  }
+  .indicators div:nth-child(2){
+    transform: rotate(30deg) translateY(-100px);
+    cursor: pointer;
+  }
+  .indicators div:nth-child(3){
+    transform: rotate(45deg) translateY(-100px);
+    cursor: pointer;
+    height: 12px;
+  }
+  .indicators div:nth-child(4){
+    transform: rotate(60deg) translateY(-100px);
+    cursor: pointer;
+  }
+  .indicators div:nth-child(5){
+    transform: rotate(75deg) translateY(-100px);
+    cursor: pointer;
+  }
+  .indicators div:nth-child(6){
+    transform: rotate(90deg) translateY(-100px);
+    height: 12px;
+    cursor: pointer;
+  }
+  .indicators div:nth-child(7){
+    transform: rotate(105deg) translateY(-100px);
+    cursor: pointer;
+  }
+  .indicators div:nth-child(8){
+    transform: rotate(120deg) translateY(-100px);
+    cursor: pointer;
+  }
+  .indicators div:nth-child(9){
+    transform: rotate(135deg) translateY(-100px);
+    cursor: pointer;
+    height: 12px;
+  }
+  .indicators div:nth-child(10){
+    transform: rotate(150deg) translateY(-100px);
+    cursor: pointer;
+  }
+  .indicators div:nth-child(11){
+    transform: rotate(165deg) translateY(-100px);
+    cursor: pointer;
+  }
+  .indicators div:nth-child(12){
+    transform: rotate(180deg) translateY(-100px);
+    height: 12px;
+    cursor: pointer;
+  }
+  .indicators div:nth-child(13){
+    transform: rotate(195deg) translateY(-100px);
+    cursor: pointer;
+  }
+  .indicators div:nth-child(14){
+    transform: rotate(210deg) translateY(-100px);
+    cursor: pointer;
+  }
+  .indicators div:nth-child(15){
+    transform: rotate(225deg) translateY(-100px);
+    height: 12px;
+    cursor: pointer;
+  }
+  .indicators div:nth-child(16){
+    transform: rotate(240deg) translateY(-100px);
+    cursor: pointer;
+  }
+  .indicators div:nth-child(17){
+    transform: rotate(255deg) translateY(-100px);
+    cursor: pointer;
+  }
+  .indicators div:nth-child(18){
+    transform: rotate(270deg) translateY(-100px);
+    height: 12px;
+    cursor: pointer;
+  }
+  .indicators div:nth-child(19){
+    transform: rotate(285deg) translateY(-100px);
+    cursor: pointer;
+  }
+  .indicators div:nth-child(20){
+    transform: rotate(300deg) translateY(-100px);
+    cursor: pointer;
+  }
+  .indicators div:nth-child(21){
+    transform: rotate(315deg) translateY(-100px);
+    height: 12px;
+    cursor: pointer;
+  }
+  .indicators div:nth-child(22){
+    transform: rotate(330deg) translateY(-100px);
+    cursor: pointer;
+  }
+  .indicators div:nth-child(23){
+    transform: rotate(345deg) translateY(-100px);
+    cursor: pointer;
+  }
+  .indicators div:nth-child(24){
+    transform: rotate(360deg) translateY(-100px);
+    height: 12px;
+    cursor: pointer;
+  }
+  .sechand,.minhand,.hrhand{
+    position: absolute;
+  }
+  .sechand, .sec{
+    height: 170px;
+    width: 20px;
+    z-index: 6;
+  }
+  .minhand, .min{
+    height: 140px;
+    width: 20px;
+    z-index: 5;
+  }
+  .hrhand, .hr{
+    height: 110px;
+    width: 20px;
+    z-index: 4;
+  }
+  .sec,.min,.hr{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+  }
+  .sec:before{
+    position: absolute;
+    content: '';
+    height: 110px;
+    width: 3px;
+    background: black;
+  }
+  .sec:after{
+    position: absolute;
+    content: '';
+    height: 35px;
+    width: 7px;
+    background:black;
+    top: 105px;
+    border-radius: 5px;
+  }
+  .min:before{
+    position: absolute;
+    content: '';
+    width: 1px;
+    top: -15px;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 60px solid slateblue;
+  }
+  .min:after{
+    position: absolute;
+    content: '';
+    width: 3px;
+    top: 40px;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-top: 30px solid slateblue;
+  }
+  .hr:before{
+    position: absolute;
+    content: '';
+    width: 1px;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 35px solid slateblue;
+  }
+  .hr:after{
+    position: absolute;
+    content: '';
+    width: 3px;
+    top: 34px;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-top: 25px solid slateblue;
+  }
+
+  @media only screen and (max-width: 700px) {
+    .container {
+      display: flex;
+      flex-direction:column;
+    }
+  }
+  @media only screen and (max-width: 400px) {
+    .clock {
+      height: 225px;
+      width: 225px;
+    }
+  }
+  @media only screen and (max-width: 700px) {
+    .col1 ul li {
+      display: inline;
+      font-size: 10px;
+    }
+  }
+  .col1
+  {
+    padding:10px;
+    color:white;
+  }
+  .col1 ul
+  {
+  list-style-type: none;
+  padding:4px;
+  }
+  .col2
+  {
+    padding:4px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .col3
+  {
+    padding:10px;
+    max-width:308px;
+    max-height:auto;
+    display: flex;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .col3 p
+  {
+    max-width:295px;
+    word-break: break-all;
+  }
+
+
+  .title {
+    @include ms-font-xl;
+    color: slateblue;
+    font-weight: bolder;
+  }
+
+  .subTitle {
+    @include ms-font-l;
+    @include ms-fontColor-white;
+  }
+
+  .description {
+    @include ms-font-l;
+    @include ms-fontColor-white;
+  }
+
+  .button {
+    // Our button
+    text-decoration: none;
+    height: 32px;
+
+    // Primary Button
+    min-width: 80px;
+    background-color: $ms-color-themePrimary;
+    border-color: $ms-color-themePrimary;
+    color: $ms-color-white;
+
+    // Basic Button
+    outline: transparent;
+    position: relative;
+    font-family: "Segoe UI WestEuropean","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: $ms-font-size-m;
+    font-weight: $ms-font-weight-regular;
+    border-width: 0;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 16px;
+
+    .label {
+      font-weight: $ms-font-weight-semibold;
+      font-size: $ms-font-size-m;
+      height: 32px;
+      line-height: 32px;
+      margin: 0 4px;
+      vertical-align: top;
+      display: inline-block;
+    }
+  }
+}

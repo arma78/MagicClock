@@ -1,0 +1,20 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "ms-teams-clock-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/msTeamsClock/MsTeamsClockWebPart.js",
+          "manifest": "./src/webparts/msTeamsClock/MsTeamsClockWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "MsTeamsClockWebPartStrings": "lib/webparts/msTeamsClock/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js",
+    "PropertyControlStrings": "node_modules/@pnp/spfx-property-controls/lib/loc/{locale}.js"
+  }
+}

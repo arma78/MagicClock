@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "ms-teams-clock-client-side-solution",
+    "id": "fa90a5d9-dfca-4ef5-88d4-f3a005ea6975",
+    "version": "1.0.0.4",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "webApiPermissionRequests": [
+        {
+          "resource": "Microsoft Graph",
+          "scope": "User.Read"
+        },
+        {
+          "resource": "Microsoft Graph",
+          "scope": "User.ReadBasic.All"
+        },
+        {
+          "resource": "Microsoft Graph",
+          "scope": "People.Read"
+        },
+        {
+          "resource": "Microsoft Graph",
+          "scope": "Calendars.Read"
+        },
+        {
+          "resource": "Microsoft Graph",
+          "scope": "Calendars.Read.Shared"
+        }
+      ],
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": ""
+    }
+  },
+  "paths": {
+    "zippedPackage": "solution/ms-teams-clock.sppkg"
+  }
+}

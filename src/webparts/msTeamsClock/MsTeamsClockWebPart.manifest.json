@@ -1,0 +1,24 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "bc27e459-7663-457f-85ee-9007ac816c22",
+  "alias": "MsTeamsClockWebPart",
+  "componentType": "WebPart",
+
+  "version": "*",
+  "manifestVersion": 2,
+
+   "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart", "TeamsTab"],
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+    "group": { "default": "Other" },
+    "title": { "default": "MS Teams Event Clock" },
+    "description": { "default": "MS Teams Clock Description:" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "Web Part that filters the calendar events for the current day.",
+      "title":""
+    }
+  }]
+}

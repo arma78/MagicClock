@@ -1,0 +1,37 @@
+{
+  "@pnp/generator-spfx": {
+    "framework": "react",
+    "pnpFramework": "reactjs.plus",
+    "pnp-libraries": [
+      "jquery@3",
+      "msgraph",
+      "msgt",
+      "@pnp/pnpjs",
+      "@pnp/spfx-property-controls",
+      "spfx-uifabric-themes",
+      "lodash",
+      "@pnp/spfx-controls-react",
+      "ouifr@6fluent",
+      "rush@3.3"
+    ],
+    "pnp-ci": "no-devops",
+    "pnp-vetting": [
+      "webpack-analyzer",
+      "stylelint",
+      "csscomb"
+    ],
+    "spfxenv": "spo",
+    "pnp-testing": []
+  },
+  "@microsoft/generator-sharepoint": {
+    "environment": "spo",
+    "framework": "react",
+    "isCreatingSolution": true,
+    "version": "1.11.0",
+    "libraryName": "ms-teams-clock",
+    "libraryId": "fa90a5d9-dfca-4ef5-88d4-f3a005ea6975",
+    "packageManager": "npm",
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}
