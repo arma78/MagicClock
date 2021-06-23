@@ -1,8 +1,8 @@
 define([], function() {
   return {
     "PropertyPaneDescription": "Description",
-    "PropertyPaneTitle": "MS Teams Event Clock",
-    "BasicGroupName": "Group Name",
+    "PropertyPaneTitle": "Magic Events Clock",
+    "BasicGroupName": "",
     "DescriptionFieldLabel": "Description Field",
     "TitleFieldLabel": "Enter your title:"
   }

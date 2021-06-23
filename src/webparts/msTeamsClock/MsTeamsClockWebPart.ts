@@ -3,7 +3,8 @@ import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  PropertyPaneTextField,
+  PropertyPaneLabel,
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import {SPHttpClient} from "@microsoft/sp-http";
@@ -19,7 +20,21 @@ export interface IMsTeamsClockWebPartProps {
 
 export default class MsTeamsClockWebPart extends BaseClientSideWebPart<IMsTeamsClockWebPartProps> {
 
+  private validateTitle(value: string): string {
+    if (value === null ||
+      value.trim().length === 0) {
+      return 'Provide a Title';
+    }
+
+    if (value.length > 40) {
+      return 'Title should not be longer than 40 characters';
+    }
+
+    return '';
+  }
+
   public render(): void {
+
     const element: React.ReactElement<IMsTeamsClockProps> = React.createElement(
       MsTeamsClock,
       {
@@ -52,11 +67,13 @@ export default class MsTeamsClockWebPart extends BaseClientSideWebPart<IMsTeamsC
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                PropertyPaneLabel('description', {
+                  text: this.properties.description
                 }),
                 PropertyPaneTextField('title', {
-                  label: strings.TitleFieldLabel
+                  label: strings.TitleFieldLabel,
+                  maxLength:40,
+                  onGetErrorMessage: this.validateTitle.bind(this)
                 })
               ]
             }

@@ -7,4 +7,5 @@ export interface IEvents {
   BodyPreview:string;
   isCancelled:string;
   responseStatus:string;
+  onlineMeeting:any;
 }

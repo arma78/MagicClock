@@ -8,6 +8,10 @@ import "@pnp/graph/calendars";
 import moment from 'moment';
 import { IEvents } from '../Services/IEvents';
 import { Shimmer} from 'office-ui-fabric-react/lib/Shimmer';
+import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
+import { TooltipHost, TooltipDelay, DirectionalHint } from 'office-ui-fabric-react/lib/Tooltip';
+import { getId } from 'office-ui-fabric-react/lib/Utilities';
+
 
 
 
@@ -18,12 +22,11 @@ export default class MsTeamsClock extends React.Component<IMsTeamsClockProps, IM
   constructor(props: IMsTeamsClockProps, state: IMsTeamsClockState) {
     super(props);
 
-    // this._indicatorClick = this._indicatorClick.bind(this);
     graph.setup({
       spfxContext: this.props.context
     });
-
-    this.state = {loaded:false, isCalloutVisible: true, items: [],selectedEvent: ["","","","","","",""]};
+    this._indicatorClick = this._indicatorClick.bind(this);
+    this.state = {loaded:false, isCalloutVisible: true, items: [],selectedEvent: ["","","","","","","",""]};
   }
 
 
@@ -31,6 +34,7 @@ export default class MsTeamsClock extends React.Component<IMsTeamsClockProps, IM
   public componentDidMount() {
     this._shimmer();
     this._filterMeetings();
+
     setInterval(this.drawClock.bind(this), 1000);
   }
 
@@ -42,11 +46,20 @@ export default class MsTeamsClock extends React.Component<IMsTeamsClockProps, IM
     if (this.state.loaded !== prevState.loaded) {
       this._shimmer();
     }
-  }
+    if (this.state.selectedEvent !== prevState.selectedEvent) {
+      this._MeetingLink();
+    }
 
+  }
+  private _hostId: string = getId('tooltipHost');
   public render(): React.ReactElement<IMsTeamsClockProps> {
+
+
+
     const eventCanceled = this.state.selectedEvent[4];
     const responseStatus = this.state.selectedEvent[6];
+
+
     let resMessage = "";
     if (responseStatus === "notResponded" )
     {
@@ -57,13 +70,57 @@ export default class MsTeamsClock extends React.Component<IMsTeamsClockProps, IM
       resMessage = responseStatus;
     }
     const messageCanceled = eventCanceled ? 'Not Canceled' : 'Canceled';
+    let newstr;
+    let newstr2 = "";
+    var n = false;
+    if(this.state.selectedEvent[3] != null && this.state.selectedEvent[3] != 'undefined')
+    {
+       newstr = this.state.selectedEvent[3];
+
+
+       n = this.state.selectedEvent[3].includes("Click here to join");
+      if (n == true)
+      {
+        newstr = this.state.selectedEvent[3].replace("Click here to join"," " );
+        newstr2 = this.state.selectedEvent[7].joinUrl;
+      }
+      else
+      {
+        newstr2 = "#";
+      }
+
+    }
+
+
+
+
     return (
       <div className={styles.msTeamsClock}>
         <div className={styles.title}>{this.props.title}</div><hr></hr>
-        <Shimmer  isDataLoaded={this.state.loaded}></Shimmer>
+       <Shimmer  isDataLoaded={this.state.loaded}></Shimmer>
         <div className={styles.container} id="container">
             <div className={styles.col1}>
               <ul>
+                <li>
+                <TooltipHost
+          calloutProps={{ gapSpace: 20 }}
+          tooltipProps={{
+            onRenderContent: () => {
+              return (
+                <div style={{fontSize:"14px",backgroundColor:"slateblue", color:"white",borderBlockColor:"black"}}>
+                  {this.props.description}
+                </div>
+              );
+            }
+          }}
+          delay={TooltipDelay.zero}
+          id={this._hostId}
+          directionalHint={DirectionalHint.bottomCenter}
+        >
+         <DefaultButton  aria-labelledby={this._hostId} text="Info" />
+
+        </TooltipHost>
+                </li>
                 <li className={styles.leg1}>No Events:</li>
                 <li className={styles.leg2}>Meeting:</li>
                 <li className={styles.leg4}>No Response:</li>
@@ -79,53 +136,53 @@ export default class MsTeamsClock extends React.Component<IMsTeamsClockProps, IM
                 </div>
                 <div className={styles.indicators} id="indicators">
 
-                  <div id="12:30" onClick={this._indicatorClick.bind(this)}>
+                  <div id="12:30" style={{ cursor: 'default',pointerEvents: 'none'}} aria-disabled="false" onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="1:0" onClick={this._indicatorClick.bind(this)}>
+                  <div id="1:0" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="1:30" onClick={this._indicatorClick.bind(this)}>
+                  <div id="1:30" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="2:0" onClick={this._indicatorClick.bind(this)}>
+                  <div id="2:0" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="2:30" onClick={this._indicatorClick.bind(this)}>
+                  <div id="2:30" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="3:0" onClick={this._indicatorClick.bind(this)}>
+                  <div id="3:0" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="3:30" onClick={this._indicatorClick.bind(this)}>
+                  <div id="3:30" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="4:0" onClick={this._indicatorClick.bind(this)}>
+                  <div id="4:0" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="4:30" onClick={this._indicatorClick.bind(this)}>
+                  <div id="4:30" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="5:0" onClick={this._indicatorClick.bind(this)}>
+                  <div id="5:0" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="5:30" onClick={this._indicatorClick.bind(this)}>
+                  <div id="5:30" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="6:0" onClick={this._indicatorClick.bind(this)}>
+                  <div id="6:0" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="6:30" onClick={this._indicatorClick.bind(this)}>
+                  <div id="6:30" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="7:0" onClick={this._indicatorClick.bind(this)}>
+                  <div id="7:0" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="7:30" onClick={this._indicatorClick.bind(this)}>
+                  <div id="7:30" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="8:0" onClick={this._indicatorClick.bind(this)}>
+                  <div id="8:0" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="8:30" onClick={this._indicatorClick.bind(this)}>
+                  <div id="8:30" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="9:0" onClick={this._indicatorClick.bind(this)}>
+                  <div id="9:0" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="9:30" onClick={this._indicatorClick.bind(this)}>
+                  <div id="9:30" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="10:0" onClick={this._indicatorClick.bind(this)}>
+                  <div id="10:0" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="10:30" onClick={this._indicatorClick.bind(this)}>
+                  <div id="10:30" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="11:0" onClick={this._indicatorClick.bind(this)}>
+                  <div id="11:0" style={{ cursor: 'default', pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="11:30" onClick={this._indicatorClick.bind(this)}>
+                  <div id="11:30" style={{ cursor: 'default',pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
-                  <div id="12:0" onClick={this._indicatorClick.bind(this)}>
+                  <div id="12:0" style={{ cursor: 'default', pointerEvents: 'none'}} onClick={this._indicatorClick.bind(this)}>
                   </div>
                 </div>
                 <div className={styles.sechand}>
@@ -153,7 +210,7 @@ export default class MsTeamsClock extends React.Component<IMsTeamsClockProps, IM
                   <p><b>Response Status: </b>{resMessage}</p>
                   <p><b>Event Status: </b>{messageCanceled}</p>
                   <p><b>Location: </b>{this.state.selectedEvent[5]}</p>
-                  <p><b>Intro: </b>{this.state.selectedEvent[3]}</p>
+                  <p><b>Intro: </b>{newstr}  <a style={{ display: 'block', backgroundColor:"white"}} id={this.state.selectedEvent[1]} href={newstr2} target="_blank" rel="noopener noreferrer"> Click here to join the meeting</a></p>
                 </>
               </div>
             </div>
@@ -162,6 +219,26 @@ export default class MsTeamsClock extends React.Component<IMsTeamsClockProps, IM
     );
   }
 
+private _MeetingLink()
+{
+  var elem = document.getElementById('info').querySelectorAll("a");
+    for (var i = 0; i < elem.length; i++) {
+     var lnk = elem[i].getAttribute("href");
+      if (lnk == "#" && lnk.length > 0 ) {
+        if (document.getElementById(elem[i].id)) {
+          var x = (document.getElementById(elem[i].id) as HTMLLinkElement);
+          x.style.display = "none";
+        }
+      }
+      else if(lnk != "#" && lnk.length > 0 ) {
+        if (document.getElementById(elem[i].id)) {
+          var y = (document.getElementById(elem[i].id) as HTMLLinkElement);
+          y.style.display = "block";
+        }
+      }
+    }
+
+}
 private _shimmer()
 {
   var info  = document.getElementById('container');
@@ -201,26 +278,30 @@ private _shimmer()
     tablinks = document.getElementById('indicators').getElementsByTagName("div");
     for (var j = 0; j < tablinks.length; j++) {
       tablinks[j].style.background = "slateblue";
+      tablinks[j].style.cursor = "default";
+      tablinks[j].style.pointerEvents = "none";
     }
     var items: Array<IEvents> = new Array<IEvents>();
     var today = moment();
     var day = today;
     const startOfDay = moment(day).startOf("day");
     const endOfDay = moment(day).endOf("day");
-    var caleEvents;
 
 
-       caleEvents = await graph.me.calendar
+
+      const caleEvents = await graph.me.calendar
       .calendarView(startOfDay.toISOString(), endOfDay.toISOString())
-      .select('subject', 'start', 'end','location','bodyPreview','isCancelled','responseStatus')();
+      .select('subject', 'start', 'end','location','bodyPreview','isCancelled','responseStatus','onlineMeeting')();
 
 
     caleEvents.map((item: any) => {
+
 
       var startDateUtc = moment.utc(item.start.dateTime);
       var StartDt = startDateUtc.local();
       var endDateUtc = moment.utc(item.end.dateTime);
       var EndDt = endDateUtc.local();
+
       items.push({
         Subject: item.subject,
         Start: StartDt,
@@ -229,9 +310,10 @@ private _shimmer()
         Location:item.location.displayName,
         BodyPreview:item.bodyPreview,
         isCancelled:item.isCancelled.toString(),
-        responseStatus:item.responseStatus.response
+        responseStatus:item.responseStatus.response,
+        onlineMeeting:item.onlineMeeting
       });
-    });
+     });
 
     this.setState({ items: items });
 
@@ -246,16 +328,22 @@ private _shimmer()
          if(this.state.items[index].Subject === "Break" || this.state.items[index].Subject === "Lunch Break")
          {
           tablinks[i].style.background = "orange";
+          tablinks[i].style.cursor = "pointer";
+          tablinks[i].style.pointerEvents = "auto";
          }
          else
          {
           if(this.state.items[index].responseStatus === "notResponded")
           {
           tablinks[i].style.background = "red";
+          tablinks[i].style.cursor = "pointer";
+          tablinks[i].style.pointerEvents = "auto";
           }
           else
           {
           tablinks[i].style.background = "black";
+          tablinks[i].style.cursor = "pointer";
+          tablinks[i].style.pointerEvents = "auto";
           }
          }
         }
@@ -264,30 +352,36 @@ private _shimmer()
     this.setState({loaded:true});
   }
 
-
   public _indicatorClick(event) {
     this.setState({selectedEvent: ["No events in your calendar for the selected time!"] });
     var eventTime  = "";
 
     for (let index = 0; index < this.state.items.length; index++) {
       eventTime = moment(this.state.items[index].Start).format("h:m").toString();
-        if (eventTime === event.target.id) {
+      if (eventTime === event.target.id)
+       {
+
         this.setState({
           selectedEvent: [
-          this.state.items[index].Subject,
-          this.state.items[index].Start,
-          this.state.items[index].End,
-          this.state.items[index].BodyPreview,
-          this.state.items[index].isCancelled,
-          this.state.items[index].Location,
-          this.state.items[index].responseStatus,
-        ]
+            this.state.items[index].Subject,
+            this.state.items[index].Start,
+            this.state.items[index].End,
+            this.state.items[index].BodyPreview,
+            this.state.items[index].isCancelled,
+            this.state.items[index].Location,
+            this.state.items[index].responseStatus,
+            this.state.items[index].onlineMeeting,
+          ]
         });
+
       }
+
     }
+
     var info  = document.getElementById('info');
     info.style.display = 'block';
   }
-
-
 }
+
+
+

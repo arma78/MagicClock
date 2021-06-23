@@ -1,43 +1,36 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "ms-teams-clock-client-side-solution",
+    "name": "Magic Events Clock",
     "id": "fa90a5d9-dfca-4ef5-88d4-f3a005ea6975",
-    "version": "1.0.0.4",
+    "version": "1.0.1.7",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
     "webApiPermissionRequests": [
         {
           "resource": "Microsoft Graph",
-          "scope": "User.Read"
-        },
-        {
-          "resource": "Microsoft Graph",
-          "scope": "User.ReadBasic.All"
-        },
-        {
-          "resource": "Microsoft Graph",
-          "scope": "People.Read"
-        },
-        {
-          "resource": "Microsoft Graph",
           "scope": "Calendars.Read"
         },
         {
           "resource": "Microsoft Graph",
-          "scope": "Calendars.Read.Shared"
+          "scope": "User.Read.All"
+        },
+        {
+          "resource": "Microsoft Graph",
+          "scope": "Group.Read.All"
         }
+
       ],
     "developer": {
-      "name": "",
-      "websiteUrl": "",
-      "privacyUrl": "",
-      "termsOfUseUrl": "",
+      "name": "Armin Razic",
+      "websiteUrl": "https://servmanag.azurewebsites.net/soltechna/index.html",
+      "privacyUrl": "https://servmanag.azurewebsites.net/soltechna/privacy.html",
+      "termsOfUseUrl": "https://servmanag.azurewebsites.net/soltechna/termsofuse.html",
       "mpnId": ""
     }
   },
   "paths": {
-    "zippedPackage": "solution/ms-teams-clock.sppkg"
+    "zippedPackage": "solution/Magic_Clock.sppkg"
   }
 }

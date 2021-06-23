@@ -125,111 +125,111 @@
     position: absolute;
     width: 6px;
     height: 8px;
-    background:slateblue;
+    background:rgb(106, 90, 205);
   }
   .indicators div:nth-child(1){
     transform: rotate(15deg) translateY(-100px);
-    cursor: pointer;
+
   }
   .indicators div:nth-child(2){
     transform: rotate(30deg) translateY(-100px);
-    cursor: pointer;
+
   }
   .indicators div:nth-child(3){
     transform: rotate(45deg) translateY(-100px);
-    cursor: pointer;
+
     height: 12px;
   }
   .indicators div:nth-child(4){
     transform: rotate(60deg) translateY(-100px);
-    cursor: pointer;
+
   }
   .indicators div:nth-child(5){
     transform: rotate(75deg) translateY(-100px);
-    cursor: pointer;
+
   }
   .indicators div:nth-child(6){
     transform: rotate(90deg) translateY(-100px);
     height: 12px;
-    cursor: pointer;
+
   }
   .indicators div:nth-child(7){
     transform: rotate(105deg) translateY(-100px);
-    cursor: pointer;
+
   }
   .indicators div:nth-child(8){
     transform: rotate(120deg) translateY(-100px);
-    cursor: pointer;
+
   }
   .indicators div:nth-child(9){
     transform: rotate(135deg) translateY(-100px);
-    cursor: pointer;
+
     height: 12px;
   }
   .indicators div:nth-child(10){
     transform: rotate(150deg) translateY(-100px);
-    cursor: pointer;
+
   }
   .indicators div:nth-child(11){
     transform: rotate(165deg) translateY(-100px);
-    cursor: pointer;
+
   }
   .indicators div:nth-child(12){
     transform: rotate(180deg) translateY(-100px);
     height: 12px;
-    cursor: pointer;
+
   }
   .indicators div:nth-child(13){
     transform: rotate(195deg) translateY(-100px);
-    cursor: pointer;
+
   }
   .indicators div:nth-child(14){
     transform: rotate(210deg) translateY(-100px);
-    cursor: pointer;
+
   }
   .indicators div:nth-child(15){
     transform: rotate(225deg) translateY(-100px);
     height: 12px;
-    cursor: pointer;
+
   }
   .indicators div:nth-child(16){
     transform: rotate(240deg) translateY(-100px);
-    cursor: pointer;
+
   }
   .indicators div:nth-child(17){
     transform: rotate(255deg) translateY(-100px);
-    cursor: pointer;
+
   }
   .indicators div:nth-child(18){
     transform: rotate(270deg) translateY(-100px);
     height: 12px;
-    cursor: pointer;
+
   }
   .indicators div:nth-child(19){
     transform: rotate(285deg) translateY(-100px);
-    cursor: pointer;
+
   }
   .indicators div:nth-child(20){
     transform: rotate(300deg) translateY(-100px);
-    cursor: pointer;
+
   }
   .indicators div:nth-child(21){
     transform: rotate(315deg) translateY(-100px);
     height: 12px;
-    cursor: pointer;
+
   }
   .indicators div:nth-child(22){
     transform: rotate(330deg) translateY(-100px);
-    cursor: pointer;
+
   }
   .indicators div:nth-child(23){
     transform: rotate(345deg) translateY(-100px);
-    cursor: pointer;
+
   }
   .indicators div:nth-child(24){
     transform: rotate(360deg) translateY(-100px);
     height: 12px;
-    cursor: pointer;
+
   }
   .sechand,.minhand,.hrhand{
     position: absolute;
@@ -370,7 +370,8 @@
 
   .description {
     @include ms-font-l;
-    @include ms-fontColor-white;
+    @include ms-fontColor-black;
+    cursor:pointer;
   }
 
   .button {

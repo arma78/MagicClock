@@ -1,24 +1,25 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
   "id": "bc27e459-7663-457f-85ee-9007ac816c22",
-  "alias": "MsTeamsClockWebPart",
+  "alias": "ClockWebPart",
   "componentType": "WebPart",
 
   "version": "*",
   "manifestVersion": 2,
 
    "requiresCustomScript": false,
-  "supportedHosts": ["SharePointWebPart", "TeamsTab"],
+  "supportedHosts": ["SharePointWebPart"],
 
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
     "group": { "default": "Other" },
-    "title": { "default": "MS Teams Event Clock" },
-    "description": { "default": "MS Teams Clock Description:" },
-    "officeFabricIconFontName": "Page",
+    "title": { "default": "Magic Events Clock" },
+    "description": { "default": "Web Part that filters the 'Microsoft Teams Calendar' events for the current day." },
     "properties": {
-      "description": "Web Part that filters the calendar events for the current day.",
-      "title":""
-    }
+      "description": "Web Part that filters the 'Microsoft Teams Calendar' events for the current day.",
+      "title":"Magic Events Clock"
+    },
+    "iconImageUrl": "data:image/png;base64,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"
   }]
+
 }
