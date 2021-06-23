@@ -51,3 +51,4 @@ These commands produce the following:
 More information on [SharePoint Framework](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/sharepoint-framework-overview)
 
 Generated with [pnp/spfx](https://github.com/pnp/generator-spfx/).
+"# MagicClock" 
